@@ -67,7 +67,7 @@ picard-tools AddOrReplaceReadGroups I=rmdup_SRR15299556.bam O=picard_output.bam 
 #Call variation using GATK(HaplotypeCaller= Germline mutation , Mutect2= Somatic variation)
 samtools faidx genome.fa
 
-java -jar /mnt/f/Dr_OmicsLab/Tools/gatk-4.3.0.0/gatk-package-4.3.0.0-local.jar HaplotypeCaller -R genome.fa -I picard_output.bam -O Gatk_output.vcf
+java -jar /mnt/c/Users/bhojr/Desktop/Tools/gatk-4.3.0.0/gatk-package-4.3.0.0-local.jar HaplotypeCaller -R genome.fa -I picard_output.bam -O Gatk_output.vcf
 
 #Variation filteration using SnpSift
 cat Gatk_output.vcf | java -jar /mnt/c/Users/bhojr/Desktop/DNASeq_SRR15299556_NGS_ANalysis/DNAseq/snpEff_latest_core/snpEff/SnpSift.jar filter "((QUAL>=30) & (DP>=10) & (MQ>=30))" > Filterd_GATK.vcf
